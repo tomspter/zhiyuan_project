@@ -1,10 +1,10 @@
 <template>
   <div class="page-login">
-    <div class="page-login--layer page-login--layer-area">
-      <ul class="circles">
-        <li v-for="n in 10" :key="n"></li>
-      </ul>
-    </div>
+<!--    <div class="page-login&#45;&#45;layer page-login&#45;&#45;layer-area">-->
+<!--      <ul class="circles">-->
+<!--        <li v-for="n in 10" :key="n"></li>-->
+<!--      </ul>-->
+<!--    </div>-->
     <div
       class="page-login--layer page-login--layer-time"
       flex="main:center cross:center">
@@ -16,7 +16,6 @@
         flex="dir:top main:justify cross:stretch box:justify">
         <div class="page-login--content-header">
           <p class="page-login--content-header-motto">
-            时间是一切财富中最宝贵的财富
           </p>
         </div>
         <div
@@ -75,34 +74,34 @@
               <span>注册用户</span>
             </p>
             <!-- quick login -->
-            <el-button class="page-login--quick" size="default" type="info" @click="dialogVisible = true">
-              快速选择用户（测试功能）
-            </el-button>
+<!--            <el-button class="page-login&#45;&#45;quick" size="default" type="info" @click="dialogVisible = true">-->
+<!--              快速选择用户（测试功能）-->
+<!--            </el-button>-->
           </div>
         </div>
-        <div class="page-login--content-footer">
-          <p class="page-login--content-footer-locales">
-            <a
-              v-for="language in $languages"
-              :key="language.value"
-              @click="onChangeLocale(language.value)">
-              {{ language.label }}
-            </a>
-          </p>
-          <p class="page-login--content-footer-copyright">
-            Copyright
-            <d2-icon name="copyright"/>
-            2018 D2 Projects 开源组织出品
-            <a href="https://github.com/FairyEver">
-              @FairyEver
-            </a>
-          </p>
-          <p class="page-login--content-footer-options">
-            <a href="#">帮助</a>
-            <a href="#">隐私</a>
-            <a href="#">条款</a>
-          </p>
-        </div>
+<!--        <div class="page-login&#45;&#45;content-footer">-->
+<!--          <p class="page-login&#45;&#45;content-footer-locales">-->
+<!--            <a-->
+<!--              v-for="language in $languages"-->
+<!--              :key="language.value"-->
+<!--              @click="onChangeLocale(language.value)">-->
+<!--              {{ language.label }}-->
+<!--            </a>-->
+<!--          </p>-->
+<!--          <p class="page-login&#45;&#45;content-footer-copyright">-->
+<!--            Copyright-->
+<!--            <d2-icon name="copyright"/>-->
+<!--            2018 D2 Projects 开源组织出品-->
+<!--            <a href="https://github.com/FairyEver">-->
+<!--              @FairyEver-->
+<!--            </a>-->
+<!--          </p>-->
+<!--          <p class="page-login&#45;&#45;content-footer-options">-->
+<!--            <a href="#">帮助</a>-->
+<!--            <a href="#">隐私</a>-->
+<!--            <a href="#">条款</a>-->
+<!--          </p>-->
+<!--        </div>-->
       </div>
     </div>
     <el-dialog
@@ -258,6 +257,10 @@ export default {
     font-weight: bold;
     color: rgba(0, 0, 0, 0.03);
     overflow: hidden;
+  }
+  .page-login--content-main{
+    //margin-top: 100px;
+    margin-bottom: 320px;
   }
   // 登陆页面控件的容器
   .page-login--content {

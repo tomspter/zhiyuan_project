@@ -38,5 +38,10 @@ export const menuAside = supplementPath([
       { path: '/page2', title: '页面 2' },
       { path: '/page3', title: '页面 3' }
     ]
+  },
+  {
+    title: '测试',
+    icon: 'table',
+    path: '/test-table'
   }
 ])
