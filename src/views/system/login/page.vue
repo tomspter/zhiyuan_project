@@ -260,7 +260,7 @@ export default {
   }
   .page-login--content-main{
     //margin-top: 100px;
-    margin-bottom: 320px;
+    margin-bottom: 400px;
   }
   // 登陆页面控件的容器
   .page-login--content {
