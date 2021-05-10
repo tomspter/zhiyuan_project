@@ -53,7 +53,7 @@ const frameIn = [
         path: 'test-table',
         name: 'test-table',
         meta: {
-          title: '测试表',
+          title: '3D测试',
           auth: false
         },
         component: _import('test_table')
@@ -65,7 +65,7 @@ const frameIn = [
           title: '全国基本情况',
           auth: false
         },
-        component: _import('test_table')
+        component: _import('income_expenditure_info')
       },
       {
         path: 'nationwide_income_expenditure',
@@ -74,7 +74,7 @@ const frameIn = [
           title: '全国居民人均收支',
           auth: false
         },
-        component: _import('test_table')
+        component: _import('nationwide_income_expenditure')
       },
       {
         path: 'town_income_expenditure',
@@ -83,7 +83,7 @@ const frameIn = [
           title: '城镇居民人均收支',
           auth: false
         },
-        component: _import('test_table')
+        component: _import('town_income_expenditure')
       },
       {
         path: 'residents_income',
@@ -92,7 +92,7 @@ const frameIn = [
           title: '居民人均可支配',
           auth: false
         },
-        component: _import('test_table')
+        component: _import('residents_income')
       },
       {
         path: 'urban_income',
@@ -101,7 +101,7 @@ const frameIn = [
           title: '城乡居民家庭人均',
           auth: false
         },
-        component: _import('test_table')
+        component: _import('urban_income')
       },
       {
         path: 'savings_balance',
@@ -110,7 +110,7 @@ const frameIn = [
           title: '储蓄存款',
           auth: false
         },
-        component: _import('test_table')
+        component: _import('savings_balance')
       },
       // 系统 前端日志
       {

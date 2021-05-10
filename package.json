@@ -17,6 +17,7 @@
     "core-js": "^3.4.3",
     "dayjs": "^1.8.17",
     "echarts": "^5.1.0",
+    "echarts-gl": "^2.0.4",
     "element-ui": "^2.13.1",
     "faker": "^4.1.0",
     "flex.css": "^1.1.7",
