@@ -58,6 +58,60 @@ const frameIn = [
         },
         component: _import('test_table')
       },
+      {
+        path: 'income_expenditure_info',
+        name: 'income_expenditure_info',
+        meta: {
+          title: '全国基本情况',
+          auth: false
+        },
+        component: _import('test_table')
+      },
+      {
+        path: 'nationwide_income_expenditure',
+        name: 'nationwide_income_expenditure',
+        meta: {
+          title: '全国居民人均收支',
+          auth: false
+        },
+        component: _import('test_table')
+      },
+      {
+        path: 'town_income_expenditure',
+        name: 'town_income_expenditure',
+        meta: {
+          title: '城镇居民人均收支',
+          auth: false
+        },
+        component: _import('test_table')
+      },
+      {
+        path: 'residents_income',
+        name: 'residents_income',
+        meta: {
+          title: '居民人均可支配',
+          auth: false
+        },
+        component: _import('test_table')
+      },
+      {
+        path: 'urban_income',
+        name: 'urban_income',
+        meta: {
+          title: '城乡居民家庭人均',
+          auth: false
+        },
+        component: _import('test_table')
+      },
+      {
+        path: 'savings_balance',
+        name: 'savings_balance',
+        meta: {
+          title: '储蓄存款',
+          auth: false
+        },
+        component: _import('test_table')
+      },
       // 系统 前端日志
       {
         path: 'log',
