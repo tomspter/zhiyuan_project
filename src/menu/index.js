@@ -30,7 +30,7 @@ export const menuHeader = supplementPath([
     title: '全国基本情况',
     icon: 'database',
     path: '/income_expenditure_info'
-  },
+  }
 ])
 
 export const menuAside = supplementPath([
