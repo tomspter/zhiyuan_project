@@ -30,6 +30,11 @@ export const menuHeader = supplementPath([
     title: '全国基本情况',
     icon: 'database',
     path: '/income_expenditure_info'
+  },
+  {
+    title: '3D图表',
+    icon: 'table',
+    path: '/test-table'
   }
 ])
 

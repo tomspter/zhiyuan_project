@@ -12,6 +12,14 @@ import router from './router'
 import { menuHeader, menuAside } from '@/menu'
 import { frameInRoutes } from '@/router/routes'
 
+// socket.id
+import VueSocketIO from 'vue-socket.io'
+Vue.use(new VueSocketIO(
+  {
+    debug: true,
+    connection: 'http://127.0.0.1:8888'
+  }
+))
 // 核心插件
 Vue.use(d2Admin)
 

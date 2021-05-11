@@ -2,6 +2,8 @@
   <d2-container>
     <el-row>
       <el-col :span="12">
+        <el-tag>服务器资源监控</el-tag>
+        <el-button @click="testSocket">socket测试</el-button>
         <el-row>
           <el-col :span="12">
             <div id="memory" ref="memory" style="width:100%;height: 400px" />
@@ -12,6 +14,7 @@
         </el-row>
       </el-col>
       <el-col :span="12">
+        <el-tag>服务器时间显示</el-tag>
         <div id="chart_clock" ref="chart_clock" style="width: 100%;height: 600px" />
       </el-col>
     </el-row>
@@ -20,6 +23,7 @@
 
 <script>
 import * as echarts from 'echarts'
+import * as io from 'socket.io'
 
 export default {
   name: 'page',
@@ -317,7 +321,8 @@ export default {
       },
       timer: undefined,
       memoryTimer: undefined,
-      cpuTimer: undefined
+      cpuTimer: undefined,
+      socket: undefined
     }
   },
   mounted () {
@@ -332,6 +337,17 @@ export default {
     this.timeControl()
     this.memoryTimeControl()
     this.cpuTimeControl()
+  },
+  sockets: {
+    connect: function () {
+      console.log('socket connected')
+    },
+    response: function (res) {
+      this.$message.success(res.msg)
+    },
+    message: function (msg) {
+      this.messages.push(msg)
+    }
   },
   beforeDestroy () {
     clearInterval(this.timer)
@@ -388,6 +404,9 @@ export default {
         this.cpuOption.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0
         this.cpuChart.setOption(this.cpuOption, true)
       }, 2000)
+    },
+    testSocket () {
+      this.$socket.emit('message', 23333)
     }
   }
 }
