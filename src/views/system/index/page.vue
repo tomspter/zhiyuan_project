@@ -23,7 +23,6 @@
 
 <script>
 import * as echarts from 'echarts'
-import * as io from 'socket.io'
 
 export default {
   name: 'page',
@@ -322,7 +321,8 @@ export default {
       timer: undefined,
       memoryTimer: undefined,
       cpuTimer: undefined,
-      socket: undefined
+      websocketObj: undefined,
+      socket: ''
     }
   },
   mounted () {
@@ -337,17 +337,6 @@ export default {
     this.timeControl()
     this.memoryTimeControl()
     this.cpuTimeControl()
-  },
-  sockets: {
-    connect: function () {
-      console.log('socket connected')
-    },
-    response: function (res) {
-      this.$message.success(res.msg)
-    },
-    message: function (msg) {
-      this.messages.push(msg)
-    }
   },
   beforeDestroy () {
     clearInterval(this.timer)
@@ -406,7 +395,10 @@ export default {
       }, 2000)
     },
     testSocket () {
-      this.$socket.emit('message', 23333)
+      this.websocketObj = new WebSocket('ws://49.232.12.36:8080/')
+      this.websocketObj.onopen = function (event) { console.log('CONNECT') }
+      this.websocketObj.onmessage = function (event) { console.log(event.data) }
+      this.websocketObj.onerror = function (event) { console.log(event) }
     }
   }
 }
