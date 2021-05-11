@@ -1,38 +1,58 @@
 <template>
   <d2-container>
     <template slot="header">
-      <!--      选表-->
-      <el-select v-model="tabelName" placeholder="请选择" size="medium" style="margin-right: 20px"
-                 @change="changeTableChart">
-        <el-option
-          v-for="item in tabelNameOptions"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value">
-        </el-option>
-      </el-select>
-<!--      调整大小-->
-      <el-slider
-        v-model="boxWidth"
-        min="0"
-        max="100"
-        @change="changeboxWidth"
-        :step="20">
-      </el-slider>
-<!--      调整深度-->
-      <el-slider
-        v-model="boxDepth"
-        min="0"
-        max="50"
-        @change="changeboxDepth"
-        :step="10">
-      </el-slider>
-      <!--      自动旋转-->
-      <el-switch v-model="autoRotate"
-                 active-text="自动旋转"
-                 inactive-text="静止" @change="autoRotateFunc"></el-switch>
+      <el-row type="flex" align="middle">
+        <el-col :span="4">
+          <!--      选表-->
+          <el-select v-model="tabelName" placeholder="请选择" size="medium"
+                     @change="changeTableChart">
+            <el-option
+              v-for="item in tabelNameOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-col>
+        <el-col :span="2"><el-tag>宽度调整</el-tag></el-col>
+        <el-col :span="5">
+          <!--      调整大小-->
+          <el-slider
+            v-model="boxWidth"
+            :min=0
+            :max=200
+            style="width: 300px"
+            @change="changeboxWidth"
+            :step="10">
+          </el-slider>
+        </el-col>
+        <el-col :span="2"><el-tag>深度调整</el-tag></el-col>
+        <el-col :span="5">
+          <!--      调整深度-->
+          <el-slider
+            v-model="boxDepth"
+            :min=0
+            :max=100
+            style="width: 300px"
+            @change="changeboxDepth"
+            :step="10">
+          </el-slider>
+        </el-col>
+        <el-col :span="6">
+          <el-switch v-model="autoRotate"
+                     active-text="自动旋转"
+                     inactive-text="静止"
+                     @change="autoRotateFunc"
+                     style="margin-right: 15px">
+          </el-switch>
+          <el-checkbox v-model="shadowStatus" @change="shadowStatusFunc" style="margin-right: 15px">开启阴影</el-checkbox>
+          <el-checkbox v-model="transparentStatus" @change="transparentFunc">开启透明</el-checkbox>
+        </el-col>
+
+        <!--      自动旋转-->
+      </el-row>
     </template>
-    <div id="chart_3D" ref="chart_3D" style="width: 100%;height: 1000px"/>
+    <div id="chart_3D" ref="chart_3D" style="width: 100%;height: 650px"/>
   </d2-container>
 </template>
 
@@ -75,8 +95,10 @@ export default {
         }],
       boxWidth: 50,
       boxDepth: 50,
-      setBoxWidth: 200,
-      setBoxDepth: 50
+      setBoxWidth: 100,
+      setBoxDepth: 50,
+      shadowStatus: false,
+      transparentStatus: false
     }
   },
   async mounted () {
@@ -127,7 +149,19 @@ export default {
       // TODO x轴年份,y轴种类,z数值
       this.option = {
         grid3D: {
-          top: 'center',
+          // bottom: '100%',
+          light: {
+            main: {
+              shadow: false
+              // shadowQuality: 'ultra'
+            }
+          },
+          postEffect: {
+            SSAO: {
+              enable: true,
+              quality: 'ultra'
+            }
+          },
           boxWidth: 0,
           boxDepth: 0,
           viewControl: {
@@ -180,6 +214,10 @@ export default {
                 fontSize: 20,
                 color: '#8A2BE2'
               }
+            },
+            itemStyle: {
+              color: '#8A2BE2',
+              opacity: 1
             }
           }
         ]
@@ -204,6 +242,20 @@ export default {
     },
     changeboxDepth () {
       this.option.grid3D.boxDepth = this.boxDepth + this.setBoxDepth
+      this.chart.setOption(this.option)
+    },
+    shadowStatusFunc () {
+      this.option.grid3D.light.main.shadow = this.shadowStatus
+      this.chart.setOption(this.option)
+    },
+    transparentFunc () {
+      if (this.transparentStatus) {
+        this.option.series[0].shading = 'color'
+        this.option.series[0].itemStyle.opacity = 0.4
+      } else {
+        this.option.series[0].shading = 'lambert'
+        this.option.series[0].itemStyle.opacity = 1
+      }
       this.chart.setOption(this.option)
     }
   }

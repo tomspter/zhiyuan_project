@@ -71,7 +71,7 @@ export const menuAside = supplementPath([
     path: '/savings_balance'
   },
   {
-    title: '测试',
+    title: '3D图表',
     icon: 'table',
     path: '/test-table'
   }
