@@ -21,96 +21,32 @@ const frameIn = [
         },
         component: _import('system/index')
       },
-      // 演示页面
       {
-        path: 'page1',
-        name: 'page1',
+        path: 'zhiyuan',
+        name: 'zhiyuan',
         meta: {
-          title: '页面 1',
+          title: '录取数据',
           auth: true
         },
-        component: _import('demo/page1')
+        component: _import('zhiyuan')
       },
       {
-        path: 'page2',
-        name: 'page2',
+        path: 'yuyuexinxi',
+        name: 'yuyuexinxi',
         meta: {
-          title: '页面 2',
+          title: '预约信息管理',
           auth: true
         },
-        component: _import('demo/page2')
+        component: _import('yuyuexinxi')
       },
       {
-        path: 'page3',
-        name: 'page3',
+        path: 'zixunrenwu',
+        name: 'zixunrenwu',
         meta: {
-          title: '页面 3',
+          title: '考生咨询任务',
           auth: true
         },
-        component: _import('demo/page3')
-      },
-      {
-        path: 'test-table',
-        name: 'test-table',
-        meta: {
-          title: '3D测试',
-          auth: false
-        },
-        component: _import('test_table')
-      },
-      {
-        path: 'income_expenditure_info',
-        name: 'income_expenditure_info',
-        meta: {
-          title: '全国基本情况',
-          auth: false
-        },
-        component: _import('income_expenditure_info')
-      },
-      {
-        path: 'nationwide_income_expenditure',
-        name: 'nationwide_income_expenditure',
-        meta: {
-          title: '全国居民人均收支',
-          auth: false
-        },
-        component: _import('nationwide_income_expenditure')
-      },
-      {
-        path: 'town_income_expenditure',
-        name: 'town_income_expenditure',
-        meta: {
-          title: '城镇居民人均收支',
-          auth: false
-        },
-        component: _import('town_income_expenditure')
-      },
-      {
-        path: 'residents_income',
-        name: 'residents_income',
-        meta: {
-          title: '居民人均可支配',
-          auth: false
-        },
-        component: _import('residents_income')
-      },
-      {
-        path: 'urban_income',
-        name: 'urban_income',
-        meta: {
-          title: '城乡居民家庭人均',
-          auth: false
-        },
-        component: _import('urban_income')
-      },
-      {
-        path: 'savings_balance',
-        name: 'savings_balance',
-        meta: {
-          title: '储蓄存款',
-          auth: false
-        },
-        component: _import('savings_balance')
+        component: _import('zixunrenwu')
       },
       // 系统 前端日志
       {

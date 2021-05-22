@@ -17,67 +17,36 @@ function supplementPath (menu) {
 
 export const menuHeader = supplementPath([
   { path: '/index', title: '首页', icon: 'home' },
-  // {
-  //   title: '页面',
-  //   icon: 'folder-o',
-  //   children: [
-  //     { path: '/page1', title: '页面 1' },
-  //     { path: '/page2', title: '页面 2' },
-  //     { path: '/page3', title: '页面 3' }
-  //   ]
-  // }
   {
-    title: '全国基本情况',
-    icon: 'database',
-    path: '/income_expenditure_info'
+    title: '录取数据',
+    icon: 'table',
+    path: '/zhiyuan'
   },
   {
-    title: '3D图表',
-    icon: 'table',
-    path: '/test-table'
-  }
+    title: '预约信息管理',
+    icon: 'list-alt',
+    path: '/yuyuexinxi'
+  },
+  {
+    title: '考生咨询任务',
+    icon: 'link',
+    path: '/zixunrenwu'
+  },
 ])
 
 export const menuAside = supplementPath([
   { path: '/index', title: '首页', icon: 'home' },
-  // {
-  //   title: '页面',
-  //   icon: 'folder-o',
-  //   children: [
-  //     { path: '/page1', title: '页面 1' },
-  //     { path: '/page2', title: '页面 2' },
-  //     { path: '/page3', title: '页面 3' }
-  //   ]
-  // },
   {
-    title: '全国基本情况',
-    icon: 'database',
-    path: '/income_expenditure_info'
+    title: '录取数据',
+    icon: 'outdent',
+    path: '/zhiyuan'
   },
   {
-    title: '地域划分',
-    icon: 'map',
+    title: '考生咨询管理',
+    icon: 'outdent',
     children: [
-      { path: '/nationwide_income_expenditure', title: '全国居民人均收支', icon: 'car' },
-      { path: '/town_income_expenditure', title: '城镇居民人均收支', icon: 'train' }
+      { path: '/yuyuexinxi', title: '预约信息管理', icon: 'list-alt' },
+      { path: '/zixunrenwu', title: '考生咨询任务', icon: 'link' }
     ]
-  },
-  {
-    title: '收入及恩格尔系数',
-    icon: 'codepen',
-    children: [
-      { path: '/residents_income', title: '居民人均可支配', icon: 'car' },
-      { path: '/urban_income', title: '城乡居民家庭人均', icon: 'train' }
-    ]
-  },
-  {
-    title: '储蓄存款',
-    icon: 'rmb',
-    path: '/savings_balance'
-  },
-  {
-    title: '3D图表',
-    icon: 'table',
-    path: '/test-table'
   }
 ])

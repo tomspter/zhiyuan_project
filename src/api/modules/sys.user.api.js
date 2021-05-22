@@ -22,7 +22,6 @@ export default ({ service, request, serviceForMock, requestForMock, mock, faker,
     //       : tools.responseError({}, '账号或密码不正确')
     //   })
     // 接口请求
-    console.log(data)
     return request({
       url: '/login',
       method: 'post',
@@ -32,6 +31,13 @@ export default ({ service, request, serviceForMock, requestForMock, mock, faker,
   GET_DATA (data) {
     return request({
       url: '/data',
+      method: 'post',
+      data
+    })
+  },
+  GET_ZHIYUAN_DATA (data) {
+    return request({
+      url: '/getEnrollDataList',
       method: 'post',
       data
     })
