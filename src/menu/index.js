@@ -38,7 +38,7 @@ export const menuAside = supplementPath([
   { path: '/index', title: '首页', icon: 'home' },
   {
     title: '录取数据',
-    icon: 'outdent',
+    icon: 'cloud',
     path: '/zhiyuan'
   },
   {

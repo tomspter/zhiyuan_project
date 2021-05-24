@@ -41,5 +41,12 @@ export default ({ service, request, serviceForMock, requestForMock, mock, faker,
       method: 'post',
       data
     })
+  },
+  GET_YUYUE_DATA (data) {
+    return request({
+      url: '/getKsBaseInfoList',
+      method: 'post',
+      data
+    })
   }
 })

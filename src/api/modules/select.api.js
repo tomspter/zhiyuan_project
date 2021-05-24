@@ -33,5 +33,12 @@ export default ({ request }) => ({
       method: 'post',
       data
     })
+  },
+  getAdminUserSelect (data) {
+    return request({
+      url: '/getAdminUserSelect',
+      method: 'post',
+      data
+    })
   }
 })
