@@ -3,7 +3,6 @@
     <el-row>
       <el-col :span="12">
         <el-tag>服务器资源监控</el-tag>
-        <el-button @click="testSocket">socket测试</el-button>
         <el-row>
           <el-col :span="12">
             <div id="memory" ref="memory" style="width:100%;height: 400px" />
@@ -394,12 +393,6 @@ export default {
         this.cpuChart.setOption(this.cpuOption, true)
       }, 2000)
     },
-    testSocket () {
-      this.websocketObj = new WebSocket('ws://49.232.12.36:8080/')
-      this.websocketObj.onopen = function (event) { console.log('CONNECT') }
-      this.websocketObj.onmessage = function (event) { console.log(event.data) }
-      this.websocketObj.onerror = function (event) { console.log(event) }
-    }
   }
 }
 </script>
