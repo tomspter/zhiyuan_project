@@ -5,8 +5,8 @@
       <el-button type="primary" icon="el-icon-setting" size="small" @click="fenpeiFunc">分配咨询师</el-button>
       <el-button type="primary" icon="el-icon-refresh" size="small" @click="refreshFunc">刷新</el-button>
     </template>
-    <el-table :data="initData" highlight-current-row :row-class-name="tableRowClassName" style="width: 100%"
-              @current-change="handleCurrentChange" >
+    <el-table :data="initData" :row-class-name="tableRowClassName" style="width: 100%"
+              @selection-change="handleCurrentChange" >
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column prop="id" label="ID"></el-table-column>
       <el-table-column prop="ks_ksh" label="考生号" sortable="custom"></el-table-column>
@@ -194,6 +194,7 @@ export default {
       }
     },
     async sendFenpeiFunc () {
+      console.log('sendFenpeiFunc', this.fenpeiForm.zxs)
       if (this.fenpeiForm.zxs === null) {
         this.$message.warning('请选择咨询师后点击确定')
         return
@@ -203,9 +204,23 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        this.$message({
-          type: 'success',
-          message: '分配成功!'
+        const data = {
+          admin_id: this.fenpeiForm.zxs,
+          ids: this.currentRow.map(item => item.id).toString()
+        }
+        api.SET_CONSULT_USER(JSON.stringify(data)).then(item => {
+          if (item.code === 1) {
+            this.$message({
+              type: 'success',
+              message: '分配成功!'
+            })
+            this.initPage()
+          } else {
+            this.$message({
+              type: 'error',
+              message: '分配失败!'
+            })
+          }
         })
       }).catch(() => {
         this.$message({
@@ -214,7 +229,6 @@ export default {
         })
       })
       this.fenpeiDialogVisible = false
-      console.log(this.fenpeiForm.zxs)
     },
     fenpeiHandleClose (done) {
       this.$confirm('确认关闭？')

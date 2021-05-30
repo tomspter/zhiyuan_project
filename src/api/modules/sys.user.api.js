@@ -28,13 +28,6 @@ export default ({ service, request, serviceForMock, requestForMock, mock, faker,
       data
     })
   },
-  GET_DATA (data) {
-    return request({
-      url: '/data',
-      method: 'post',
-      data
-    })
-  },
   GET_ZHIYUAN_DATA (data) {
     return request({
       url: '/getEnrollDataList',
@@ -48,5 +41,26 @@ export default ({ service, request, serviceForMock, requestForMock, mock, faker,
       method: 'post',
       data
     })
-  }
+  },
+  KS_CONSULT_LIST (data) {
+    return request({
+      url: '/getKsConsultList',
+      method: 'post',
+      data
+    })
+  },
+  KS_FILTER_CONSULT_LIST (data) {
+    return request({
+      url: '/getKsConsultFilterList',
+      method: 'post',
+      data
+    })
+  },
+  SET_CONSULT_USER (data) {
+    return request({
+      url: '/setConsultUser',
+      method: 'post',
+      data
+    })
+  },
 })

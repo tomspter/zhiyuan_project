@@ -31,6 +31,15 @@ const frameIn = [
         component: _import('zhiyuan')
       },
       {
+        path: 'inner_zhiyuan',
+        name: 'inner_zhiyuan',
+        meta: {
+          title: '咨询数据',
+          auth: true
+        },
+        component: _import('innerZhiyuan')
+      },
+      {
         path: 'yuyuexinxi',
         name: 'yuyuexinxi',
         meta: {
