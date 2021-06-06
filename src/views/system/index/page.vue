@@ -1,20 +1,20 @@
 <template>
   <d2-container>
     <el-row>
-      <el-col :span="12">
-        <el-tag>服务器资源监控</el-tag>
-        <el-row>
-          <el-col :span="12">
-            <div id="memory" ref="memory" style="width:100%;height: 400px" />
-          </el-col>
-          <el-col :span="12">
-            <div id="cpu" ref="cpu" style="width: 100%;height: 400px " />
-          </el-col>
-        </el-row>
-      </el-col>
-      <el-col :span="12">
-        <el-tag>服务器时间显示</el-tag>
-        <div id="chart_clock" ref="chart_clock" style="width: 100%;height: 600px" />
+<!--      <el-col :span="12">-->
+<!--        <el-tag>服务器资源监控</el-tag>-->
+<!--        <el-row>-->
+<!--          <el-col :span="12">-->
+<!--            <div id="memory" ref="memory" style="width:100%;height: 400px" />-->
+<!--          </el-col>-->
+<!--          <el-col :span="12">-->
+<!--            <div id="cpu" ref="cpu" style="width: 100%;height: 400px " />-->
+<!--          </el-col>-->
+<!--        </el-row>-->
+<!--      </el-col>-->
+      <el-col :span="24">
+<!--        <el-tag>服务器时间显示</el-tag>-->
+        <div id="chart_clock" ref="chart_clock" style="width: 100%;height: 800px" />
       </el-col>
     </el-row>
   </d2-container>
@@ -327,26 +327,26 @@ export default {
   mounted () {
     this.chart = echarts.init(document.getElementById('chart_clock'))
     this.chart.setOption(this.option)
-    this.memoryChart = echarts.init(document.getElementById('memory'))
-    this.memoryChart.setOption(this.memoryOption)
-    this.cpuChart = echarts.init(document.getElementById('cpu'))
-    this.cpuChart.setOption(this.cpuOption)
+    // this.memoryChart = echarts.init(document.getElementById('memory'))
+    // this.memoryChart.setOption(this.memoryOption)
+    // this.cpuChart = echarts.init(document.getElementById('cpu'))
+    // this.cpuChart.setOption(this.cpuOption)
   },
   created () {
     this.timeControl()
-    this.memoryTimeControl()
-    this.cpuTimeControl()
+    // this.memoryTimeControl()
+    // this.cpuTimeControl()
   },
   beforeDestroy () {
     clearInterval(this.timer)
-    clearInterval(this.memoryTimer)
-    clearInterval(this.cpuTimer)
+    // clearInterval(this.memoryTimer)
+    // clearInterval(this.cpuTimer)
     echarts.dispose(this.chart)
-    echarts.dispose(this.memoryChart)
-    echarts.dispose(this.cpuChart)
+    // echarts.dispose(this.memoryChart)
+    // echarts.dispose(this.cpuChart)
     this.chart = undefined
-    this.memoryChart = undefined
-    this.cpuChart = undefined
+    // this.memoryChart = undefined
+    // this.cpuChart = undefined
   },
   methods: {
     updateSeries (time, series, type) {

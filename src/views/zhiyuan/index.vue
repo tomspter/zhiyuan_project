@@ -3,103 +3,186 @@
     <template slot="header">
       <!--      分数位次区间-->
       <el-row type="flex" align="middle">
-        <el-col :span="1">
-          <el-tag size="medium">年份</el-tag>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">年份</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="sjnfSelectModel" @change="(val)=>changeSelect(val,'sjnf')">
+                <el-option v-for="item in sjnfSelect"
+                           :key="item.sjnf"
+                           :label="item.sjnf"
+                           :value="item.sjnf">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-        <el-col :span="2" style="margin-right: 10px">
-          <el-select size="small" v-model="sjnfSelectModel" @change="(val)=>changeSelect(val,'sjnf')">
-            <el-option v-for="item in sjnfSelect"
-                       :key="item.sjnf"
-                       :label="item.sjnf"
-                       :value="item.sjnf">
-            </el-option>
-          </el-select>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">省份</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="ssdmSelectModel" @change="(val)=>changeSelect(val,'ssdm')">-->
+                <el-option v-for="item in ssdmSelect"
+                           :key="item.SSDM"
+                           :label="item.SSMC"
+                           :value="item.SSDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-
-        <el-col :span="1">
-          <el-tag size="medium">省份</el-tag>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">城市</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="ssdmSelectModel" @change="(val)=>changeSelect(val,'ssdm')">-->
+                <el-option v-for="item in ssdmSelect"
+                           :key="item.SSDM"
+                           :label="item.SSMC"
+                           :value="item.SSDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-        <el-col :span="2" style="margin-right: 10px">
-          <el-select size="small" v-model="ssdmSelectModel" @change="(val)=>changeSelect(val,'ssdm')">
-            <el-option v-for="item in ssdmSelect"
-                       :key="item.SSDM"
-                       :label="item.SSMC"
-                       :value="item.SSDM">
-            </el-option>
-          </el-select>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="8">
+              <el-tag size="medium">院校类别</el-tag>
+            </el-col>
+            <el-col :span="16">
+              <el-select size="small" v-model="prevPcdmSelectModel" @change="(val)=>changeSelect(val,'prev')">-->
+                <el-option v-for="item in prevPcdmSelect"
+                           :key="item.ID"
+                           :label="item.PCMC"
+                           :value="item.PCDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-
-        <el-col :span="1">
-          <el-tag size="medium">院校</el-tag>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">院校</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="yxdmSelectModel" @change="(val)=>changeSelect(val,'yxdm')">-->
+                <el-option v-for="item in yxdmSelect"
+                           :key="item.YXDM"
+                           :label="item.YXMC"
+                           :value="item.YXDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-        <el-col :span="2" style="margin-right: 10px">
-          <el-select size="small" v-model="yxdmSelectModel" @change="(val)=>changeSelect(val,'yxdm')">
-            <el-option v-for="item in yxdmSelect"
-                       :key="item.YXDM"
-                       :label="item.YXMC"
-                       :value="item.YXDM">
-            </el-option>
-          </el-select>
+      </el-row>
+<!--      第二行选项-->
+      <el-row type="flex" align="middle" style="margin-top: 10px">
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">专业组</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="zyzdmSelectModel" @change="(val)=>changeSelect(val,'prev')">
+                <el-option v-for="item in zyzdmSelect"
+                           :key="item.ZYZDM"
+                           :label="item.ZYZMC"
+                           :value="item.ZYZDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-
-        <el-col :span="1">
-          <el-tag size="medium">批次</el-tag>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">专业</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="zyzdmSelectModel" @change="(val)=>changeSelect(val,'prev')">
+                <el-option v-for="item in zyzdmSelect"
+                           :key="item.ZYZDM"
+                           :label="item.ZYZMC"
+                           :value="item.ZYZDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-        <el-col :span="2" style="margin-right: 5px">
-          <el-select size="small" v-model="prevPcdmSelectModel" @change="(val)=>changeSelect(val,'prev')">
-            <el-option v-for="item in prevPcdmSelect"
-                       :key="item.ID"
-                       :label="item.PCMC"
-                       :value="item.PCDM">
-            </el-option>
-          </el-select>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row>
+            <el-col :span="6">
+              <el-tag size="medium">批次</el-tag>
+            </el-col>
+            <el-col :span="18">
+              <el-select size="small" v-model="prevPcdmSelectModel" @change="(val)=>changeSelect(val,'prev')">
+                <el-option v-for="item in prevPcdmSelect"
+                           :key="item.ID"
+                           :label="item.PCMC"
+                           :value="item.PCDM">
+                </el-option>
+              </el-select>
+            </el-col>
+          </el-row>
         </el-col>
-
-        <el-col :span="1">
-          <el-tag size="medium">专业组</el-tag>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-row type="flex" align="middle">
+            <el-col :span="6">
+              <el-tag size="medium">位次</el-tag>
+            </el-col>
+            <el-col :span="2"></el-col>
+            <el-col :span="8">
+              <el-input size="small" clearable></el-input>
+            </el-col>
+            <el-col :span="2"><div style="alignment: center;text-align: center">-</div></el-col>
+            <el-col :span="8">
+              <el-input size="small" clearable></el-input>
+            </el-col>
+          </el-row>
         </el-col>
-        <el-col :span="2" style="margin-right: 10px">
-          <el-select size="small" v-model="zyzdmSelectModel" @change="(val)=>changeSelect(val,'prev')">
-            <el-option v-for="item in zyzdmSelect"
-                       :key="item.ZYZDM"
-                       :label="item.ZYZMC"
-                       :value="item.ZYZDM">
-            </el-option>
-          </el-select>
+        <el-col :span="1"></el-col>
+        <el-col :span="4">
+          <el-col :span="6">
+            <el-tag size="medium">分数</el-tag>
+          </el-col>
+          <el-col :span="2"></el-col>
+          <el-col :span="8">
+            <el-input size="small" clearable></el-input>
+          </el-col>
+          <el-col :span="2"><div style="alignment: center;text-align: center">-</div></el-col>
+          <el-col :span="8">
+            <el-input size="small" clearable></el-input>
+          </el-col>
         </el-col>
-
-        <el-col :span="1">
-          <el-tag size="medium">院校类别</el-tag>
-        </el-col>
-        <el-col :span="2" style="margin-right: 10px">
-          <el-select size="small" v-model="prevPcdmSelectModel" @change="(val)=>changeSelect(val,'prev')">
-            <el-option v-for="item in prevPcdmSelect"
-                       :key="item.ID"
-                       :label="item.PCMC"
-                       :value="item.PCDM">
-            </el-option>
-          </el-select>
-        </el-col>
-        <el-col :span="2"></el-col>
-
-<!--        <el-col :span="2">-->
-<!--          <el-button type="primary" icon="el-icon-search">搜索</el-button>-->
-<!--        </el-col>-->
+      </el-row>
+      <el-row type="flex" align="middle" justify="start" style="margin-top: 10px">
         <el-col :span="2">
           <el-button type="primary" icon="el-icon-edit" @click="clearFunc" size="small">清除</el-button>
         </el-col>
         <el-col :span="2">
           <el-button type="primary" icon="el-icon-refresh" @click="initPage" size="small">刷新</el-button>
         </el-col>
-<!--        <el-col :span="2">-->
-<!--          <el-button type="primary" icon="el-icon-close">关闭</el-button>-->
-<!--        </el-col>-->
-
       </el-row>
     </template>
     <!--    表格-->
     <el-table :data="initData" @sort-change="changeSort" highlight-current-row>
-<!--      <el-table-column type="selection" width="55"></el-table-column>-->
+      <!--      <el-table-column type="selection" width="55"></el-table-column>-->
       <el-table-column prop="ID" label="ID" width="55"></el-table-column>
       <el-table-column prop="PCDM" label="批次代码" sortable="custom"></el-table-column>
       <el-table-column prop="PCMC" label="批次名称" sortable="custom"></el-table-column>
@@ -134,7 +217,7 @@ import api from '@/api'
 
 export default {
   name: 'zhiyuan',
-  data () {
+  data() {
     return {
       initData: [],
       total: 0,
@@ -156,7 +239,7 @@ export default {
   },
   methods: {
     // 初始化页面
-    async initPage (inputData) {
+    async initPage(inputData) {
       const data = {
         page: this.page,
         rows: this.rows,
@@ -172,7 +255,7 @@ export default {
       this.initData = result.rows
       this.total = result.total
     },
-    async initSelect () {
+    async initSelect() {
       this.ssdmSelect = await api.getSsdmSelect()
       this.yxdmSelect = await api.getYxdmSelect()
       this.sjnfSelect = await api.getSjnfSelect()
@@ -184,17 +267,17 @@ export default {
       return row.ZXZT === 1 ? '征询' : row.ZXZT === 0 ? '' : '未知'
     },
     // 页面行数
-    async handleSizeChange (val) {
+    async handleSizeChange(val) {
       this.rows = val
       await this.initPage()
     },
     // 页面跳转
-    async handleCurrentChange (val) {
+    async handleCurrentChange(val) {
       this.page = val
       await this.initPage()
     },
     // 重排序
-    async changeSort (val) {
+    async changeSort(val) {
       console.log(val)
       this.sort = val.prop
       if (val.order === 'ascending') {
@@ -204,7 +287,7 @@ export default {
       }
       await this.initPage()
     },
-    async changeSelect (val, type) {
+    async changeSelect(val, type) {
       console.log(val, type)
       // const data = {
       //   page: this.page,
@@ -228,7 +311,7 @@ export default {
       // }
       await this.initPage()
     },
-    async clearFunc () {
+    async clearFunc() {
       this.yxdmSelectModel = ''
       this.ssdmSelectModel = ''
       this.sjnfSelectModel = ''
@@ -241,7 +324,7 @@ export default {
       await this.initPage()
     }
   },
-  created () {
+  created() {
     this.initPage()
     this.initSelect()
   }
